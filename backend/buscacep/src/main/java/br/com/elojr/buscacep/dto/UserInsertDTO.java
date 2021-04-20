@@ -2,6 +2,9 @@ package br.com.elojr.buscacep.dto;
 
 import java.io.Serializable;
 
+import br.com.elojr.buscacep.services.validations.UserInsertValid;
+
+@UserInsertValid
 public class UserInsertDTO extends UserDTO  implements Serializable {
 	private static final long serialVersionUID = 1L;
 	

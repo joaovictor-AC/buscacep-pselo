@@ -2,9 +2,12 @@ package br.com.elojr.buscacep.resources;
 
 import java.net.URI;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -21,7 +24,7 @@ public class UserResource {
 	private UserService service;
 	
 	@PostMapping
-	public ResponseEntity<UserDTO> insertUser(UserInsertDTO dto) {
+	public ResponseEntity<UserDTO> insertUser(@Valid @RequestBody UserInsertDTO dto) {
 		UserDTO newDto = service.insert(dto);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
 				.buildAndExpand(newDto.getId()).toUri();
