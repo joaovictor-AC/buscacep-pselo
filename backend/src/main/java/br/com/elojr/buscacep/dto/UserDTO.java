@@ -4,13 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import javax.validation.constraints.Email;
+
 import br.com.elojr.buscacep.entities.Search;
 import br.com.elojr.buscacep.entities.User;
 
 public class UserDTO {
 
 	private Long id;
+	
+	@Email(message = "Favor entrar um email válido")
 	private String email;
+	
 	private List<SearchDTO> searches = new ArrayList<>();
 	
 	public UserDTO() {

@@ -22,10 +22,17 @@ public class SearchService {
 	UserRepository userRepository;
 	
 	public SearchDTO insert(SearchInsertDTO dto) {
-		Search entity = new Search();
-		copyDtoToEntity(dto, entity);
-		entity = repository.save(entity);
-		return new SearchDTO(entity);
+		if (repository.findByCep(dto.getCep()) != null) {
+			Search entityFound = repository.findByCep(dto.getCep());
+			entityFound.setCreatedAt(Instant.now());
+			entityFound = repository.save(entityFound);
+			return new SearchDTO(entityFound);
+		} else {
+			Search entity = new Search();
+			copyDtoToEntity(dto, entity);
+			entity = repository.save(entity);
+			return new SearchDTO(entity);
+		}
 	}
 
 	private void copyDtoToEntity(SearchInsertDTO dto, Search entity) {

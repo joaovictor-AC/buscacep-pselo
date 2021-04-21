@@ -2,16 +2,22 @@ package br.com.elojr.buscacep.dto;
 
 import java.time.Instant;
 
+import javax.validation.constraints.Size;
+
 import br.com.elojr.buscacep.entities.Search;
 
 public class SearchDTO {
 
 	private Long id;
+	
+	@Size(min = 8, max = 8)
 	private String cep;
 	private String logradouro;
 	private String bairro;
 	private String localidade;
 	private Instant createdAt;
+	
+	@Size(min = 2, max = 2)
 	private String uf;
 	
 	public SearchDTO() {
