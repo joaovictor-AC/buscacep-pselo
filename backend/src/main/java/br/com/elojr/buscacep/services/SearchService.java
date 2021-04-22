@@ -4,9 +4,11 @@ import java.time.Instant;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.com.elojr.buscacep.dto.SearchDTO;
 import br.com.elojr.buscacep.dto.SearchInsertDTO;
+import br.com.elojr.buscacep.dto.UserDTO;
 import br.com.elojr.buscacep.entities.Search;
 import br.com.elojr.buscacep.entities.User;
 import br.com.elojr.buscacep.repositories.SearchRepository;
@@ -19,20 +21,32 @@ public class SearchService {
 	SearchRepository repository;
 	
 	@Autowired
+	AuthService authService;
+	
+	@Autowired
 	UserRepository userRepository;
 	
+	@Transactional
 	public SearchDTO insert(SearchInsertDTO dto) {
-		if (repository.findByCep(dto.getCep()) != null) {
-			Search entityFound = repository.findByCep(dto.getCep());
-			entityFound.setCreatedAt(Instant.now());
-			entityFound = repository.save(entityFound);
-			return new SearchDTO(entityFound);
-		} else {
+		User user = authService.authenticated();
+		UserDTO userDto = new UserDTO(user, user.getSearches());
+		boolean isFound = false;
+		
+		for (SearchDTO searchDto : userDto.getSearches()) {
+			if (searchDto.getCep().equals(dto.getCep())) {
+				Search searchEntity = repository.getOne(searchDto.getId());
+				searchEntity.setCreatedAt(Instant.now());
+				searchEntity = repository.save(searchEntity);
+				return new SearchDTO(searchEntity);
+			}
+		}
+		if (isFound == false) {
 			Search entity = new Search();
 			copyDtoToEntity(dto, entity);
 			entity = repository.save(entity);
 			return new SearchDTO(entity);
 		}
+		return null; // never reachable code
 	}
 
 	private void copyDtoToEntity(SearchInsertDTO dto, Search entity) {
