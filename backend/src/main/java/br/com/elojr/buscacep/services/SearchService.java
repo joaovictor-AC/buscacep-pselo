@@ -3,6 +3,8 @@ package br.com.elojr.buscacep.services;
 import java.time.Instant;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -59,5 +61,19 @@ public class SearchService {
 		
 		User user = userRepository.getOne(dto.getUser().getId());
 		entity.setUser(user);
+	}
+
+	@Transactional(readOnly = true)
+	public Page<SearchDTO> listOfCurrentUser(String localidade, Pageable pageable) {
+		User user = authService.authenticated();
+		Page<Search> page = repository.find(user, localidade, pageable);
+		return page.map(x -> new SearchDTO(x));
+	}
+
+	@Transactional(readOnly = true)
+	public Page<SearchDTO> listOfCurrentUserWithoutParams(Pageable pageable) {
+		User user = authService.authenticated();
+		Page<Search> page = repository.findWithoutParams(user, pageable);
+		return page.map(x -> new SearchDTO(x));
 	}
 }
