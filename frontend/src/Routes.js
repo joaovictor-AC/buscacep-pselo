@@ -1,14 +1,16 @@
 import { Route, Router, Switch } from "react-router";
-import NotFound from "./core/components/NotFound";
-import PrivateRoute from "./core/components/PrivateRoute";
+import PrivateRoute from "./core/utils/PrivateRoute";
 import history from "./core/utils/history";
 import Login from "./pages/Auth/Login";
 import Register from "./pages/Auth/Register";
 import Form from "./pages/Home";
+import NotFound from "./pages/NotFound/NotFound";
+import Navbar from "./core/components/Navbar";
 
 function Routes () {
     return (
         <Router history={history}>
+            <Navbar/>
             <Switch>
                 <PrivateRoute path="/" exact>
                     <Form />
