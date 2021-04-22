@@ -1,4 +1,5 @@
 import { Route, Router, Switch } from "react-router";
+import NotFound from "./core/components/NotFound";
 import history from "./core/utils/history";
 import Login from "./pages/Auth/Login";
 import Register from "./pages/Auth/Register";
@@ -18,6 +19,9 @@ function Routes () {
                 </Route>
                 <Route path="/register">
                     <Register />
+                </Route>
+                <Route>
+                    <NotFound/>
                 </Route>
             </Switch>
         </Router>
