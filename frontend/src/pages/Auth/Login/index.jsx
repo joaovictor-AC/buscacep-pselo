@@ -1,12 +1,20 @@
 import { useForm } from "react-hook-form";
+import { makeLogin } from "../../../core/utils/request";
 import AuthCard from "../Card";
+import history from '../../../core/utils/history'
 import "./style.css";
 
 function Login() {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    makeLogin(data)
+    .then(response => {
+      if(response.data) {
+        localStorage.setItem('app-token', JSON.stringify(response.data))
+        history.push('/')
+      }
+    })
   };
 
   return (
