@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -30,6 +31,7 @@ public class User implements UserDetails, Serializable {
 	private String password;
 	
 	@OneToMany(mappedBy = "user")
+	@OrderBy("createdAt DESC")
 	private Set<Search> searches = new HashSet<>();
 	
 	public User() {
