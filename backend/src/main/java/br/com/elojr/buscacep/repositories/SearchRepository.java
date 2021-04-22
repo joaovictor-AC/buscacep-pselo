@@ -14,12 +14,9 @@ public interface SearchRepository extends JpaRepository<Search, Long>{
 
 	@Query("SELECT obj FROM Search obj WHERE"
 			+ "(obj.user = :user) AND "
-			+ "(obj.localidade = :localidade )"
+			+ "(LOWER(obj.localidade) LIKE LOWER(CONCAT('%',:localidade,'%'))) AND "
+			+ "(LOWER(obj.logradouro) LIKE LOWER(CONCAT('%',:logradouro,'%'))) AND "
+			+ "(LOWER(obj.uf) LIKE LOWER(CONCAT('%',:uf,'%'))) "
 			+ "ORDER BY obj.createdAt DESC")
-	Page<Search> find(User user, String localidade, Pageable pageable);
-	
-	@Query("SELECT obj FROM Search obj WHERE"
-			+ "(obj.user = :user)"
-			+ "ORDER BY obj.createdAt DESC")
-	Page<Search> findWithoutParams(User user, Pageable pageable);
+	Page<Search> find(User user, String localidade, String logradouro, String uf, Pageable pageable);
 }

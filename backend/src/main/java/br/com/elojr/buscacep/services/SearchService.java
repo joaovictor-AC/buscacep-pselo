@@ -28,6 +28,13 @@ public class SearchService {
 	@Autowired
 	UserRepository userRepository;
 	
+	@Transactional(readOnly = true)
+	public Page<SearchDTO> listOfCurrentUser(String localidade, String logradouro, String uf, Pageable pageable) {
+		User user = authService.authenticated();
+		Page<Search> page = repository.find(user, localidade, logradouro, uf, pageable);
+		return page.map(x -> new SearchDTO(x));
+	}
+	
 	@Transactional
 	public SearchDTO insert(SearchInsertDTO dto) {
 		User user = authService.authenticated();
@@ -48,7 +55,7 @@ public class SearchService {
 			entity = repository.save(entity);
 			return new SearchDTO(entity);
 		}
-		return null; // never reachable code
+		return null; // unreachable code
 	}
 
 	private void copyDtoToEntity(SearchInsertDTO dto, Search entity) {
@@ -63,17 +70,4 @@ public class SearchService {
 		entity.setUser(user);
 	}
 
-	@Transactional(readOnly = true)
-	public Page<SearchDTO> listOfCurrentUser(String localidade, Pageable pageable) {
-		User user = authService.authenticated();
-		Page<Search> page = repository.find(user, localidade, pageable);
-		return page.map(x -> new SearchDTO(x));
-	}
-
-	@Transactional(readOnly = true)
-	public Page<SearchDTO> listOfCurrentUserWithoutParams(Pageable pageable) {
-		User user = authService.authenticated();
-		Page<Search> page = repository.findWithoutParams(user, pageable);
-		return page.map(x -> new SearchDTO(x));
-	}
 }
