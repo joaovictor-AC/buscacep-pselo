@@ -17,7 +17,7 @@ function Register() {
       <div className="container">
         <div className="content first-content">
           <div className="first-column">
-            <h2 className="title title-second">Criar conta</h2>
+            <h2 className="title title-primary">Criar conta</h2>
             <form onSubmit={handleSubmit(onSubmit)} className="form">
               <label className="label-registrar">
                 <AiOutlineMail />
