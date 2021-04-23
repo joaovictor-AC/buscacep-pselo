@@ -5,6 +5,7 @@
     height: 100vh;
     background-color: #ecf0f1;
 }
+
 .content {
     background-color: #fff;
     border-radius: 15px;
@@ -16,6 +17,7 @@
     display: flex;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
+
 .content::before {
     content: "";
     position: absolute;
@@ -27,25 +29,31 @@
 
     right: 0;
 }
+
 .title {
     font-size: 28px;
     font-weight: bold;
     text-transform: capitalize;
 }
+
 .title-primary {
     color: black;
 }
+
 .title-second {
-    color:  black;
+    color: black;
 }
+
 .description {
     font-size: 14px;
     font-weight: 300;
     line-height: 30px;
 }
+
 .description-primary {
     color: #fff;
 }
+
 .description-second {
     color: #7f8c8d;
 }
@@ -54,6 +62,7 @@
     text-align: center;
     width: 60%;
 }
+
 .second-column {
     width: 40%;
     display: flex;
@@ -76,20 +85,24 @@
     border: none;
     margin-top: 1rem;
 }
+
 .btn-primary {
     background-color: transparent;
     border: 1px solid #fff;
     transition: background-color .5s;
 }
+
 .btn-primary:hover {
     background-color: #fff;
     color: #58af9b;
 }
+
 .btn-second {
     background-color: var(--primary-color);
     border: 1px solid var(--primary-color);
     transition: background-color .5s;
 }
+
 .btn-second:hover {
     background-color: #fff;
     border: 1px solid var(--primary-color);
@@ -102,19 +115,33 @@
     width: 55%;
     margin: 0 auto;
 }
-.input-registrar{
-    height: 45px;
+
+.label-registrar {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
     width: 100%;
+    background-color: #ecf0f1;
+    margin: 8px 0;
+    padding: .25em .5em;
+    border-radius: 5px;
+    gap: .5em;
+}
+
+.input-registrar {
+    height: 45px;
+    width: 50%;
     border: none;
     background-color: #ecf0f1;
     outline: none;
-    border-radius: 5px;
-    display: flex;
     align-items: center;
-    margin: 8px;
+
 }
-input:-webkit-autofill 
-{    
+
+.link {
+}
+
+input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px #ecf0f1 inset !important;
     -webkit-text-fill-color: #000 !important;
 }
