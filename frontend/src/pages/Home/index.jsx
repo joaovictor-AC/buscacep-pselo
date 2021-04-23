@@ -43,7 +43,7 @@ function Form() {
           <input
             className="input-search-cep"
             type="text"
-            placeholder="CEP"
+            placeholder="Insira o CEP desejado!"
             name="cep"
             ref={register({
               required: true,
