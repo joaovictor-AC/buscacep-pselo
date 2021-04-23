@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap');
 
-.body {
-    font-family: 'Open Sans', sans-serif;
-}
+
 .container {
     display: flex;
     justify-content: center;
@@ -39,24 +37,27 @@
 } 
 
 .title {
-    
     font-size: 28px;
     font-weight: bold;
     text-transform: capitalize;
+    line-height: 0px;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .title-primary {
     color:#fff;
+    font-size: 35px;
 }
 
 .title-second {
+    font-size: 38px;
     color:#214f85
 }
 
 .description {
     font-size: 14px;
-    font-weight: 300;
-    line-height: 30px;
+    font-weight: 100;
+    line-height: 0px;
 }
 
 .description-primary {
@@ -64,7 +65,8 @@
 }
 
 .description-second {
-    color:#214f85 
+    color:#214f85;
+    line-height: 0px; 
 }
 
 .first-column {
@@ -90,7 +92,7 @@
     padding: 10px 50px;
     cursor: pointer;
     font-weight: bold;
-    width: 150px;
+    width: 300px;
     align-self: center;
     border: none;
     margin-top: 1rem;
@@ -108,7 +110,7 @@
 }
 
 .input-login {
-    height: 45px;
+    height: 25px;
     width: 100%;
     border: none;
     background-color: #ecf0f1;
@@ -136,4 +138,12 @@
 .btn-primary:hover {
     background-color: #fff;
     color: #58af9b;
+}
+.label-input {
+    background-color: #ecf0f1;
+    display: flex;
+    align-items: center;
+    margin: 8px;
+    border: 1px solid #214f85;
+    border-radius: 10px;
 }

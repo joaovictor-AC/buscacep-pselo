@@ -4,6 +4,7 @@ import AuthCard from "../Card";
 import history from '../../../core/utils/history'
 import "./style.css";
 
+
 function Login() {
   const { register, handleSubmit } = useForm();
 
@@ -30,28 +31,33 @@ function Login() {
           </div>
           <div className="second-column">
             <h2 className="title title-second">Faça  login</h2>
-            <p className="description description-second">Use seu email da conta e senha criada:</p>
+            <p className="description description-second">usando seu email da conta e senha criada:</p>
 
             <form onSubmit={handleSubmit(onSubmit)}>
+
+            <label class="label-input">
             <input
               className="input-login"
               type="text"
-              placeholder="Email"
+              placeholder="                          ✉ Email"
               name="username"
               ref={register({
                 required: true, 
               })}
             />
+            </label>
 
+            <label class="label-input">
             <input
               className="input-login"
               type="text"
-              placeholder="Senha"
+              placeholder="                            Senha"
               name="password"
               ref={register({
                 required: true,
               })}
             />
+            </label>
 
             <input type="submit" className="submit-login submit-login-primary" />
           </form>
