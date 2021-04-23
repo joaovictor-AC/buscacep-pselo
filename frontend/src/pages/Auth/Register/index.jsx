@@ -13,22 +13,11 @@ function Register() {
     <AuthCard title="REGISTER">
       <div className="container">
         <div className="content first-content">
+
           <div className="first-column">
-            <h2 className="title title-primary">welcome back!</h2>
-            <p className="description description-primary">
-              To keep connected with us
-            </p>
-            <p className="description description-primary">
-              please login with your personal info
-            </p>
-            <button id="signin" className="btn btn-primary">
-              sign in
-            </button>
-          </div>
-          <div className="second-column">
-            <h2 className="title title-second">create account</h2>
+            <h2 className="title title-second">Criar conta</h2>
             <p className="description description-second">
-              or use your email for registration:
+            
             </p>
             <form onSubmit={handleSubmit(onSubmit)} className="form">
               <input
@@ -51,8 +40,24 @@ function Register() {
                 })}
               />
 
-              <input type="submit" className="submit-registrar" />
+              <input
+                type="submit"
+                className="submit-registrar btn btn-second"
+              />
             </form>
+          </div>
+
+          <div className="second-column">
+            <h2 className="title title-primary">welcome back!</h2>
+            <p className="description description-primary">
+              To keep connected with us
+            </p>
+            <p className="description description-primary">
+              please login with your personal info
+            </p>
+            <button id="signin" className="btn btn-primary">
+              sign in
+            </button>
           </div>
         </div>
       </div>
