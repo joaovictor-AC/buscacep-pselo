@@ -4,11 +4,14 @@ import { getSessionData, logout } from "../../core/utils/auth";
 import history from "../../core/utils/history";
 import { makePrivateRequest, makeRequest } from "../../core/utils/request";
 import './style.css';
+import { HiOutlineLogout } from "react-icons/hi";
+import { AiOutlineHistory, AiOutlineSearch } from "react-icons/ai";
 
 function Form() {
   const { register, handleSubmit, setValue, errors } = useForm();
 
   const onSubmit = cepRecebido => {
+    console.log(cepRecebido)
     makeRequest({ url: `https://viacep.com.br/ws/${cepRecebido.cep}/json/`, method: 'GET' })
       .then(response => {
         setValue('cepParaBackend', response.data.cep);
@@ -18,7 +21,7 @@ function Form() {
         setValue('uf', response.data.uf);
       })
       .catch(() => {
-        toast.error("Falha ao cadastrar pesquisa!")
+        toast.error("Falha ao fazer pesquisa de CEP!")
       })
   }
 
@@ -73,9 +76,12 @@ function Form() {
           </div>
           <div className="two-buttons">
             <input type="submit" className="button-search-cep" value="BUSCAR" />
+            <button onClick={handleSubmit(onSubmit)} className="button-search-cep-icon" ><AiOutlineSearch className="icon-search-react-icon"/></button>
             <button onClick={handleOnClickHistory} className="button-history">HISTÓRICO</button>
+            <button onClick={handleOnClickHistory} className="button-history-icon"><AiOutlineHistory className="icon-history-react-icon" /></button>
           </div>
             <button onClick={handleOnClick} className="button-logout">LOGOUT</button>
+            <button onClick={handleOnClick} className="button-logout-icon"><HiOutlineLogout className="icon-logout-react-icon" /></button>
         </form>
       </div>
 
