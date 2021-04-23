@@ -3,6 +3,7 @@ import { AiOutlineMail } from "react-icons/ai";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { Link } from 'react-router-dom'
 import { makeRequest } from "../../../core/utils/request";
+import AuthCard from "../Card";
 import "./style.css";
 
 function Register() {
@@ -17,9 +18,7 @@ function Register() {
   };
 
   return (
-      <div className="container">
-        <div className="content-registrar">
-          <h1 className="content-title-registrar">FAÇA SEU CADASTRO!</h1>
+      <AuthCard  title="FAÇA SEU CADASTRO!">
           <form onSubmit={handleSubmit(onSubmit)} className="form">
                 <label className="label-registrar">
                   <AiOutlineMail className="icon-registrar-input" />
@@ -54,8 +53,7 @@ function Register() {
                   value="Enviar"
                 />
           </form>
-        </div>
-      </div>
+      </AuthCard>
   );
 }
 

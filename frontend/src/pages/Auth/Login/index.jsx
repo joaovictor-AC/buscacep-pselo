@@ -13,55 +13,48 @@ function Login() {
 
   const onSubmit = (data) => {
     makeLogin(data)
-    .then(response => {
-      if(response.data) {
-        localStorage.setItem('app-token', JSON.stringify(response.data))
-        history.push('/')
-      }
-    })
+      .then(response => {
+        if (response.data) {
+          localStorage.setItem('app-token', JSON.stringify(response.data))
+          history.push('/')
+        }
+      })
   };
 
   return (
-      <div className = "container">
-        <div className="first-content">
-          <div className="second-column">
-            <h2 className="title title-second">FAÇA LOGIN</h2>
-            <p className="description description-second">usando seu email da conta e senha criada:</p>
+    <AuthCard title="FAÇA SEU LOGIN!">
+      <form onSubmit={handleSubmit(onSubmit)} className="form">
+        <label class="label-registrar">
+          <AiOutlineMail className="icon-registrar-input" />
+          <input
+            className="input-registrar"
+            type="text"
+            placeholder="Email"
+            name="username"
+            ref={register({
+              required: true,
+            })}
+          />
+        </label>
 
-            <form onSubmit={handleSubmit(onSubmit)}>
+        <label class="label-registrar">
+          <RiLockPasswordLine className="icon-registrar-input" />
+          <input
+            className="input-registrar"
+            type="password"
+            placeholder="Senha"
+            name="password"
+            ref={register({
+              required: true,
+            })}
+          />
+        </label>
 
-            <label class="label-input">
-            <AiOutlineMail className="icon-to-inputs"/>
-            <input
-              className="input-login"
-              type="text"
-              placeholder="Email"
-              name="username"
-              ref={register({
-                required: true, 
-              })}
-            />
-            </label>
+        <Link to="/register" className="link">Não possui cadastro? Faça agora!</Link>
 
-            <label class="label-input">
-            <RiLockPasswordLine className="icon-to-inputs"/>
-            <input
-              className="input-login"
-              type="password"
-              placeholder="Senha"
-              name="password"
-              ref={register({
-                required: true,
-              })}
-            />
-            </label>
-
-            <input type="submit" className="submit-login submit-login-primary" />
-          </form>
-
-          </div>
-        </div>
-      </div>
+        <input type="submit" className="submit-registrar btn btn-second" />
+      </form>
+    </AuthCard>
   );
 }
 
