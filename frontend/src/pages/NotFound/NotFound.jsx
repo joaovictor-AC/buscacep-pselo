@@ -1,6 +1,10 @@
+import './styles.css';
+
 function NotFound() {
     return(
-        <h1>Error 404</h1>
+        <div className="container">
+            <img src="https://ik.imagekit.io/b2twgpcgqmc/Pagina-nao-encontrada_wY8u3vaeR.png" alt="Página não encontrada" className="image-not-found"/>
+        </div>
     );
 }
 

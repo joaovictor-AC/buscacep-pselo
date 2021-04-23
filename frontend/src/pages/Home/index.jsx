@@ -1,6 +1,7 @@
-import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 import { getSessionData, logout } from "../../core/utils/auth";
+import history from "../../core/utils/history";
 import { makePrivateRequest, makeRequest } from "../../core/utils/request";
 import './style.css';
 
@@ -16,6 +17,9 @@ function Form() {
         setValue('localidade', response.data.localidade);
         setValue('uf', response.data.uf);
       })
+      .catch(() => {
+        toast.error("Falha ao cadastrar pesquisa!")
+      })
   }
 
   const onSubmitToBackend = dataToBackend => {
@@ -27,10 +31,20 @@ function Form() {
       }
     }
     makePrivateRequest({ url: 'http://localhost:8080/searches', method: 'POST', data: payload })
+    .then(() => {
+      toast.info("Pesquisa cadastrada!")
+    })
+    .catch(() => {
+      toast.error("Falha ao cadastrar pesquisa!")
+    })
   }
 
   const handleOnClick = () => {
     logout();
+  }
+
+  const handleOnClickHistory = () => {
+    history.push('/searches')
   }
 
   return (
@@ -39,26 +53,29 @@ function Form() {
         <form onSubmit={handleSubmit(onSubmit)} className="form-above">
           <div className="input-and-error">
             <input
-              className="input-search-cep"
+              className={`input-search-cep ${errors.cep ? 'invalid-input' : ''}`}
               type="number"
               placeholder="Insira o CEP desejado!"
               name="cep"
               ref={register({
                 required: "Campo obrigatório",
-                minLength: 8,
-                maxLength: 8,
+                pattern: {
+                  value: /^[a-zA-Z0-9]{8}$/i,
+                  message: "CEP deve ter 8 caracteres"
+                }
               })}
             />
-            {/* {errors.cep && (
+            {errors.cep && (
               <small className="invalid-cep">
                 {errors.cep.message}
               </small>
-            )} */}
+            )}
           </div>
           <div className="two-buttons">
             <input type="submit" className="button-search-cep" value="BUSCAR" />
-            <button onClick={handleOnClick} className="button-logout">LOGOUT</button>
+            <button onClick={handleOnClickHistory} className="button-history">HISTÓRICO</button>
           </div>
+            <button onClick={handleOnClick} className="button-logout">LOGOUT</button>
         </form>
       </div>
 
