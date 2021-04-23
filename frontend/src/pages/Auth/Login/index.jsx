@@ -37,7 +37,7 @@ function Login() {
                 <li><a href="#">linkedin</a></li>
               </ul>
             </div>
-            <p className="description">Or use your email account:</p>
+            <p className="description">Use your email account:</p>
 
             <form onSubmit={handleSubmit(onSubmit)}>
             <input
