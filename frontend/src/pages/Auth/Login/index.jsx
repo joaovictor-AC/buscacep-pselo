@@ -19,29 +19,55 @@ function Login() {
 
   return (
     <AuthCard title="LOGIN">
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <input
-          className="input-login"
-          type="text"
-          placeholder="Email"
-          name="username"
-          ref={register({
-            required: true,
-          })}
-        />
 
-        <input
-          className="input-login"
-          type="text"
-          placeholder="Senha"
-          name="password"
-          ref={register({
-            required: true,
-          })}
-        />
+      <div className = "container">
+        <div className="content first-content">
+          <div className="first-column">
+            <h2 className="title">Hello, Friend!</h2>
+            <p className="description">Enter your personal details.</p>
+            <p className="description">and start journey with us.</p>
+            <button className="btn">Sign up</button>          
+          </div>
+          <div className="second-column">
+            <h2 className="title">Sign in to developer</h2>
+            <div className="social-media">
+              <ul>
+                <li><a href="#">facebook</a></li>
+                <li><a href="#">google+</a></li>
+                <li><a href="#">linkedin</a></li>
+              </ul>
+            </div>
+            <p className="description">Or use your email account:</p>
 
-        <input type="submit" className="submit-login" />
-      </form>
+            <form onSubmit={handleSubmit(onSubmit)}>
+            <input
+              className="input-login"
+              type="text"
+              placeholder="Email"
+              name="username"
+              ref={register({
+                required: true, 
+              })}
+            />
+
+            <input
+              className="input-login"
+              type="text"
+              placeholder="Senha"
+              name="password"
+              ref={register({
+                required: true,
+              })}
+            />
+
+            <input type="submit" className="submit-login" />
+          </form>
+
+          </div>
+        </div>
+
+
+      </div>
     </AuthCard>
   );
 }
