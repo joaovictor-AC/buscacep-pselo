@@ -3,12 +3,11 @@
 .body {
     font-family: 'Open Sans', sans-serif;
 }
-
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 60vh;
+    height: 80vh;
     background-color: #ecf0f1;
 }
 
@@ -29,7 +28,7 @@
 .content::before {
     content: "";
     position: absolute;
-    background-color: #58af9b;
+    background-color: #214f85;
     width: 40%;
     height: 100%;
     border-top-left-radius: 15px;
@@ -40,6 +39,7 @@
 } 
 
 .title {
+    
     font-size: 28px;
     font-weight: bold;
     text-transform: capitalize;
@@ -47,6 +47,10 @@
 
 .title-primary {
     color:#fff;
+}
+
+.title-second {
+    color:#214f85
 }
 
 .description {
@@ -57,6 +61,10 @@
 
 .description-primary {
     color:#fff
+}
+
+.description-second {
+    color:#214f85 
 }
 
 .first-column {
@@ -77,7 +85,7 @@
 .submit-login {
     border-radius: 15px;
     text-transform: uppercase;
-    color: rgb(8, 0, 0);
+    color: #214f85;
     font-size: 10px;
     padding: 10px 50px;
     cursor: pointer;
@@ -90,12 +98,42 @@
 
 .submit-login-primary {
     background-color: transparent;
-    border: 1px solid #58af9b;
+    border: 1px solid #214f85;
     transition: background-color .5s;
 }
 
 .submit-login-primary:hover {
-    background-color: #58af9b;
-    border: 1px solid #ffffff;
+    background-color: #214f85;
+    color: #58af9b;
+}
+
+.input-login {
+    height: 45px;
+    width: 100%;
+    border: none;
+    background-color: #ecf0f1;
+    margin: 8px;
+}
+
+.btn {
+    border-radius: 15px;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 10px;
+    padding: 10px 50px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 150px;
+    align-self: center;
+    border: none;
+    margin-top: 1rem;
+}
+.btn-primary {
+    background-color: transparent;
+    border: 1px solid #fff;
+    transition: background-color .5s;
+}
+.btn-primary:hover {
+    background-color: #fff;
     color: #58af9b;
 }
