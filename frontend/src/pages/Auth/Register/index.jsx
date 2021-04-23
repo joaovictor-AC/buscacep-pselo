@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import { AiOutlineMail } from 'react-icons/ai'
 import AuthCard from "../Card";
 import "./style.css";
 
@@ -13,13 +14,14 @@ function Register() {
     <AuthCard title="REGISTER">
       <div className="container">
         <div className="content first-content">
-
+    
           <div className="first-column">
             <h2 className="title title-second">Criar conta</h2>
             <p className="description description-second">
             
             </p>
             <form onSubmit={handleSubmit(onSubmit)} className="form">
+              <AiOutlineMail/>
               <input
                 className="input-registrar"
                 type="text"
@@ -48,16 +50,9 @@ function Register() {
           </div>
 
           <div className="second-column">
-            <h2 className="title title-primary">welcome back!</h2>
-            <p className="description description-primary">
-              To keep connected with us
-            </p>
-            <p className="description description-primary">
-              please login with your personal info
-            </p>
-            <button id="signin" className="btn btn-primary">
-              sign in
-            </button>
+       
+                <h1>IMAGEM</h1>
+
           </div>
         </div>
       </div>
