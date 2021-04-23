@@ -1,22 +1,22 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap');
-
-* {
-    margin: 50;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh;
+    height: calc(100vh - 70px);
     background-color: #ecf0f1;
 }
 
 .first-content {
     display: flex;
+    width: 400px;
     line-height: 80px;
+    background: white;
+    border-radius: 10px;
+}
+
+.image-login-register {
+    width: 60%;
+    text-align: center;
 }
 
 .content {
@@ -78,6 +78,11 @@
 
 .first-column {
     text-align: center;
+    /*  */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*  */
     width: 40%;
     z-index: 10;
     flex: 1 0 auto;
@@ -89,6 +94,7 @@
     flex-direction: column;
     align-items: center;
     flex: 2 0 auto;
+    padding: 30px;
 }
 
 .submit-login {
@@ -122,6 +128,11 @@
     border: none;
     background-color: #ecf0f1;
     margin: 8px;
+    outline: none;
+}
+
+.icon-to-inputs {
+    margin: 0 0 0 8px;
 }
 
 .btn {

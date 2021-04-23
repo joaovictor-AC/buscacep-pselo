@@ -28,4 +28,4 @@ export const makeLogin = data => {
   
     const payload = qs.stringify({ ...data, grant_type: 'password' });
     return makeRequest({ url: 'http://localhost:8080/oauth/token', data: payload, method: 'POST', headers})
-  }
+}

@@ -13,4 +13,4 @@ export const getSessionData = () => {
 export const logout = () => {
     localStorage.removeItem('app-token');
     history.replace('/login');
-  }
+}

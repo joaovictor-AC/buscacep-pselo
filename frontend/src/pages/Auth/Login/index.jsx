@@ -3,6 +3,9 @@ import { makeLogin } from "../../../core/utils/request";
 import AuthCard from "../Card";
 import history from '../../../core/utils/history'
 import "./style.css";
+import { Link } from "react-router-dom";
+import { AiOutlineMail } from "react-icons/ai";
+import { RiLockPasswordLine } from "react-icons/ri";
 
 
 function Login() {
@@ -19,27 +22,20 @@ function Login() {
   };
 
   return (
-    <AuthCard title="LOGIN">
-
       <div className = "container">
-        <div className="content first-content">
-          <div className="first-column">
-            <h2 className="title-primary">Seja bem-vindo!</h2>
-            <p className="description-primary">Ainda não tem uma conta?</p>
-            <p className="description-primary">Cadastre-se aqui</p> 
-            <button id="signup" class="btn btn-primary">sign up</button>        
-          </div>
+        <div className="first-content">
           <div className="second-column">
-            <h2 className="title title-second">Faça  login</h2>
+            <h2 className="title title-second">FAÇA LOGIN</h2>
             <p className="description description-second">usando seu email da conta e senha criada:</p>
 
             <form onSubmit={handleSubmit(onSubmit)}>
 
             <label class="label-input">
+            <AiOutlineMail className="icon-to-inputs"/>
             <input
               className="input-login"
               type="text"
-              placeholder="                          ✉ Email"
+              placeholder="Email"
               name="username"
               ref={register({
                 required: true, 
@@ -48,10 +44,11 @@ function Login() {
             </label>
 
             <label class="label-input">
+            <RiLockPasswordLine className="icon-to-inputs"/>
             <input
               className="input-login"
-              type="text"
-              placeholder="                            Senha"
+              type="password"
+              placeholder="Senha"
               name="password"
               ref={register({
                 required: true,
@@ -64,10 +61,7 @@ function Login() {
 
           </div>
         </div>
-
-
       </div>
-    </AuthCard>
   );
 }
 
