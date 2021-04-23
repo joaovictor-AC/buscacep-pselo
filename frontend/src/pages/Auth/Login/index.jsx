@@ -25,8 +25,8 @@ function Login() {
         <div className="content first-content">
           <div className="first-column">
             <h2 className="title-primary">Seja bem-vindo!</h2>
-            <p className="description-primary">Entre com suas informações pessoais</p>
-            <p className="description-primary">e comece a sua jornada conosco.</p> 
+            <p className="description-primary">Ainda não tem uma conta?</p>
+            <p className="description-primary">Cadastre-se aqui</p> 
             <button id="signup" class="btn btn-primary">sign up</button>        
           </div>
           <div className="second-column">

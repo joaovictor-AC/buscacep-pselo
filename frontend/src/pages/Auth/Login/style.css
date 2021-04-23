@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap');
 
+* {
+    margin: 50;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 .container {
     display: flex;
@@ -11,6 +16,7 @@
 
 .first-content {
     display: flex;
+    line-height: 80px;
 }
 
 .content {
@@ -61,7 +67,8 @@
 }
 
 .description-primary {
-    color:#fff
+    color:#fff;
+    line-height: 20px;
 }
 
 .description-second {
@@ -129,6 +136,7 @@
     align-self: center;
     border: none;
     margin-top: 1rem;
+    line-height: 20px; 
 }
 .btn-primary {
     background-color: transparent;
