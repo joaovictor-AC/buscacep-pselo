@@ -25,18 +25,10 @@ function Login() {
           <div className="first-column">
             <h2 className="title">Hello, Friend!</h2>
             <p className="description">Enter your personal details.</p>
-            <p className="description">and start journey with us.</p>
-            <button className="btn">Sign up</button>          
+            <p className="description">and start journey with us.</p>         
           </div>
           <div className="second-column">
             <h2 className="title">Sign in to developer</h2>
-            <div className="social-media">
-              <ul>
-                <li><a href="#">facebook</a></li>
-                <li><a href="#">google+</a></li>
-                <li><a href="#">linkedin</a></li>
-              </ul>
-            </div>
             <p className="description">Use your email account:</p>
 
             <form onSubmit={handleSubmit(onSubmit)}>
