@@ -23,9 +23,9 @@ function Login() {
       <div className = "container">
         <div className="content first-content">
           <div className="first-column">
-            <h2 className="title">Hello, Friend!</h2>
-            <p className="description">Enter your personal details.</p>
-            <p className="description">and start journey with us.</p>         
+            <h2 className="title-primary">Seja bem-vindo!</h2>
+            <p className="description-primary">Enter your personal details.</p>
+            <p className="description-primary">and start journey with us.</p>         
           </div>
           <div className="second-column">
             <h2 className="title">Sign in to developer</h2>
@@ -52,7 +52,7 @@ function Login() {
               })}
             />
 
-            <input type="submit" className="submit-login" />
+            <input type="submit" className="submit-login submit-login-primary" />
           </form>
 
           </div>
