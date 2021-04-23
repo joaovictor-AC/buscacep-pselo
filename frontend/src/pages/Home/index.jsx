@@ -5,14 +5,11 @@ import { makePrivateRequest, makeRequest } from "../../core/utils/request";
 import './style.css';
 
 function Form() {
-  const { register, handleSubmit, setValue } = useForm();
-  const [isCepFound, setIsCepFound] = useState(false);
+  const { register, handleSubmit, setValue, errors } = useForm();
 
   const onSubmit = cepRecebido => {
     makeRequest({ url: `https://viacep.com.br/ws/${cepRecebido.cep}/json/`, method: 'GET' })
       .then(response => {
-        setIsCepFound(true);
-        console.log(response);
         setValue('cepParaBackend', response.data.cep);
         setValue('logradouro', response.data.logradouro);
         setValue('bairro', response.data.bairro);
@@ -40,15 +37,24 @@ function Form() {
     <div className="container-geral">
       <div className="container-above">
         <form onSubmit={handleSubmit(onSubmit)} className="form-above">
-          <input
-            className="input-search-cep"
-            type="text"
-            placeholder="Insira o CEP desejado!"
-            name="cep"
-            ref={register({
-              required: true,
-            })}
-          />
+          <div className="input-and-error">
+            <input
+              className="input-search-cep"
+              type="number"
+              placeholder="Insira o CEP desejado!"
+              name="cep"
+              ref={register({
+                required: "Campo obrigatório",
+                minLength: 8,
+                maxLength: 8,
+              })}
+            />
+            {/* {errors.cep && (
+              <small className="invalid-cep">
+                {errors.cep.message}
+              </small>
+            )} */}
+          </div>
           <div className="two-buttons">
             <input type="submit" className="button-search-cep" value="BUSCAR" />
             <button onClick={handleOnClick} className="button-logout">LOGOUT</button>
@@ -56,16 +62,17 @@ function Form() {
         </form>
       </div>
 
-      {/* {isCepFound && */}
-        <div className="container-below">
+      <div className="container-below">
+        <div className="content-home">
           <form onSubmit={handleSubmit(onSubmitToBackend)} className="form-below">
             <h1 className="form-below-title">SALVE SUA PESQUISA!</h1>
             <input
-              className="input-search-cep-below"
+              className="input-search-cep-below block-input-below"
               type="text"
               placeholder="CEP"
               name="cepParaBackend"
               ref={register()}
+              disabled="disabled"
             />
             <input
               className="input-search-cep-below"
@@ -82,23 +89,25 @@ function Form() {
               ref={register()}
             />
             <input
-              className="input-search-cep-below"
+              className="input-search-cep-below block-input-below"
               type="text"
               placeholder="Localidade"
               name="localidade"
               ref={register()}
+              disabled="disabled"
             />
             <input
-              className="input-search-cep-below"
+              className="input-search-cep-below block-input-below"
               type="text"
               placeholder="UF"
               name="uf"
               ref={register()}
+              disabled="disabled"
             />
             <button className="button-search-below">ENVIAR</button>
           </form>
         </div>
-      {/* } */}
+      </div>
     </div>
   );
 }
