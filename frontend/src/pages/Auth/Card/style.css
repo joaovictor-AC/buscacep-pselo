@@ -55,6 +55,7 @@
     /* border: 1px solid var(--primary-color); */
     border-radius: 10px;
     gap: .5em;
+    position: relative;
 }
 
 .icon-div {
@@ -93,7 +94,7 @@
     align-self: flex-start;
     font-weight: bold;
     color: black;
-    margin: 0 0 10px 0;
+    margin: 5px 0 10px 5px;
     text-decoration: underline;
     transition:  all .5s;
 }
@@ -129,8 +130,11 @@
     color: var(--primary-hover-color);
 }
 
-.invalid-email {
-    color: red;
+.invalid{
+    color: #dc3545;
+    position: absolute;
+    left: 5px;
+    bottom: -20px;
 }
 
 @media (max-width: 508px) {

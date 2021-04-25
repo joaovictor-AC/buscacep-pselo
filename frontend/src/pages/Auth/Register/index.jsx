@@ -57,8 +57,10 @@ function Register() {
               },
             })}
           />
+          {errors.email && (
+            <small className="invalid">{errors.email.message}</small>
+          )}
         </label>
-        {errors.email && <small>{errors.email.message}</small>}
 
         <label className="label-registrar">
           <RiLockPasswordLine className="icon-registrar-input" />
@@ -86,8 +88,10 @@ function Register() {
               onClick={() => onShowPassword("show1")}
             />
           )}
+          {errors.password && (
+            <small className="invalid">{errors.password.message}</small>
+            )}
         </label>
-        {errors.password && <small className="invalid">{errors.password.message}</small>}
 
         <label className="label-registrar">
           <RiLockPasswordLine className="icon-registrar-input" />
@@ -113,10 +117,10 @@ function Register() {
               onClick={() => onShowPassword("show2")}
             />
           )}
-        </label>
         {errors.password_repeat && (
-          <small>{errors.password_repeat.message}</small>
+          <small className="invalid">{errors.password_repeat.message}</small>
         )}
+        </label>
 
         <Link to="/login" className="link">
           Já possui um login?
