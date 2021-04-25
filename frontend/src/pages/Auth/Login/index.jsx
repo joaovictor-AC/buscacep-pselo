@@ -4,13 +4,15 @@ import AuthCard from "../Card";
 import history from '../../../core/utils/history'
 import "./style.css";
 import { Link } from "react-router-dom";
-import { AiOutlineMail } from "react-icons/ai";
+import { AiOutlineEye, AiOutlineEyeInvisible, AiOutlineMail } from "react-icons/ai";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { toast } from "react-toastify";
+import { useState } from "react";
 
 
 function Login() {
   const { register, handleSubmit, errors } = useForm();
+  const [show, setShow] = useState(true);
 
   const onSubmit = (data) => {
     makeLogin(data)
@@ -46,7 +48,7 @@ function Login() {
           />
         </label>
         {errors.username && (
-          <small>
+          <small className="invalid-email">
             {errors.username.message}
           </small>
         )}
@@ -55,7 +57,7 @@ function Login() {
           <RiLockPasswordLine className="icon-registrar-input" />
           <input
             className="input-registrar"
-            type="password"
+            type={show ? "password" : "text"}
             placeholder="Senha"
             name="password"
             ref={register({
@@ -66,6 +68,17 @@ function Login() {
               }
             })}
           />
+            {show ? (
+            <AiOutlineEyeInvisible
+              className="icon-show-input"
+              onClick={() => setShow(!show)}
+            />
+          ) : (
+            <AiOutlineEye
+              className="icon-show-input"
+              onClick={() => setShow(!show)}
+            />
+          )}
         </label>
         {errors.password && (
           <small>

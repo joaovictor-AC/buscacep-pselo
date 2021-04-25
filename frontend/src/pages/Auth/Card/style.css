@@ -57,8 +57,23 @@
     gap: .5em;
 }
 
+.icon-div {
+    display: inline-block;
+}
+
 .icon-registrar-input {
     margin-left: 8px;
+}
+
+.icon-show-input {
+    margin-right: 8px;
+    cursor: pointer;
+    color: #696a6a;
+    transition: all .25s;
+}
+
+.icon-show-input:hover {
+    color: #272828;
 }
 
 .input-registrar {
@@ -112,6 +127,10 @@
     background-color: #fff;
     border: 1px solid var(--primary-color);
     color: var(--primary-hover-color);
+}
+
+.invalid-email {
+    color: red;
 }
 
 @media (max-width: 508px) {
