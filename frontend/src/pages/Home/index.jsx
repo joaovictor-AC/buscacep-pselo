@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import { getSessionData, logout } from "../../core/utils/auth";
 import history from "../../core/utils/history";
 import { makePrivateRequest, makeRequest } from "../../core/utils/request";
-import './style.css';
+import './css/base.css';
 import { HiOutlineLogout } from "react-icons/hi";
 import { AiOutlineHistory, AiOutlineSearch } from "react-icons/ai";
 

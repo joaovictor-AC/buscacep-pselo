@@ -1,0 +1,10 @@
+.invalid-cep {
+    position: absolute;
+    bottom: -20px;
+    left: 4px;
+    color: #dc3545;
+}
+
+.invalid-input {
+    border: 1px solid #dc3545;
+}
