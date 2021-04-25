@@ -10,7 +10,7 @@ import { toast } from "react-toastify";
 
 
 function Login() {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = (data) => {
     makeLogin(data)
@@ -37,10 +37,19 @@ function Login() {
             placeholder="Email"
             name="username"
             ref={register({
-              required: true,
+              required: "Você deve especificar um e-mail!",
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                message: "Insira um e-mail válido!"
+              }
             })}
           />
         </label>
+        {errors.username && (
+          <small>
+            {errors.username.message}
+          </small>
+        )}
 
         <label class="label-registrar">
           <RiLockPasswordLine className="icon-registrar-input" />
@@ -50,10 +59,19 @@ function Login() {
             placeholder="Senha"
             name="password"
             ref={register({
-              required: true,
+              required: "Você deve especificar uma senha!",
+              minLength: {
+                value: 6,
+                message: "A senha deve ter ao menos 6 caracteres!"
+              }
             })}
           />
         </label>
+        {errors.password && (
+          <small>
+            {errors.password.message}
+          </small>
+        )}
 
         <Link to="/register" className="link">Não possui cadastro? Faça agora!</Link>
 
