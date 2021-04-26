@@ -100,7 +100,7 @@
     align-self: flex-start;
     font-weight: bold;
     color: black;
-    margin: 5px 0 10px 5px;
+    margin: 20px 0 10px 5px;
     text-decoration: underline;
     transition:  all .5s;
 }
