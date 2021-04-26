@@ -46,12 +46,12 @@ function Login() {
               }
             })}
           />
-        </label>
         {errors.username && (
-          <small className="invalid-email">
+          <small className="invalid">
             {errors.username.message}
           </small>
         )}
+        </label>
 
         <label className="label-registrar">
           <RiLockPasswordLine className="icon-registrar-input" />
@@ -79,12 +79,12 @@ function Login() {
               onClick={() => setShow(!show)}
             />
           )}
-        </label>
         {errors.password && (
-          <small>
+          <small className="invalid">
             {errors.password.message}
           </small>
         )}
+        </label>
 
         <Link to="/register" className="link">Não possui cadastro? Faça agora!</Link>
 

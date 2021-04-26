@@ -6,6 +6,7 @@ import Register from "./pages/Auth/Register";
 import Form from "./pages/Home";
 import NotFound from "./pages/NotFound/NotFound";
 import Navbar from "./core/components/Navbar";
+import Searches from "./pages/Searches";
 
 function Routes () {
     return (
@@ -16,7 +17,7 @@ function Routes () {
                     <Form />
                 </PrivateRoute>
                 <PrivateRoute path="/searches">
-                    <h1>Searche</h1>
+                <Searches/>
                 </PrivateRoute>
                 <Route path="/login">
                     <Login />
