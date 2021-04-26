@@ -1,5 +1,7 @@
 .container-geral {
-    height: calc(100vh - 70px);
+    min-height: calc(100vh - 125px);
+    padding-bottom: 30px;
+    padding-top: 25px;
     background: url('../../../core/assets/home-background.svg') no-repeat bottom;
     background-size: cover;
     -webkit-background-size: cover;
@@ -13,7 +15,7 @@
 }
 
 .container-below {
-    height: calc(100vh - 142px);
+    margin-top: 75px;
     display: flex;
     justify-content: center;
     align-items: center;

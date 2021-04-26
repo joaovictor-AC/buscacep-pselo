@@ -31,7 +31,7 @@ function Login() {
   return (
     <AuthCard title="FAÇA SEU LOGIN!" subtitle="e faça suas buscas">
       <form onSubmit={handleSubmit(onSubmit)} className="form">
-        <label class="label-registrar">
+        <label className="label-registrar">
           <AiOutlineMail className="icon-registrar-input" />
           <input
             className="input-registrar"
@@ -53,7 +53,7 @@ function Login() {
           </small>
         )}
 
-        <label class="label-registrar">
+        <label className="label-registrar">
           <RiLockPasswordLine className="icon-registrar-input" />
           <input
             className="input-registrar"

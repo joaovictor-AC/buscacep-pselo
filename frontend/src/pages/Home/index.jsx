@@ -19,9 +19,9 @@ function Form() {
         setValue('bairro', response.data.bairro);
         setValue('localidade', response.data.localidade);
         setValue('uf', response.data.uf);
-      })
-      .catch(() => {
-        toast.error("Falha ao fazer pesquisa de CEP!")
+        if(response.data.erro === true) {
+          toast.error("Falha ao pesquisar. CEP Inválido!")
+        }
       })
   }
 
