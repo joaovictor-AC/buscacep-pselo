@@ -9,6 +9,7 @@ function SearchCard (){
                 <p className=""><strong>Bairro:</strong> Setor Leste Universitário</p>
                 <p className=""><strong>Logradouro:</strong> Rua 227</p>
                 <p className=""><strong>UF:</strong> GO</p>
+                <p className=""><strong>Data:</strong> 26/04/2021</p>
             </div>
         </div>
     )
