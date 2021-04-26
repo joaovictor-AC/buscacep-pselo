@@ -1,0 +1,13 @@
+.form-above {
+    display: flex;
+    width: 100%;
+}
+
+.form-below-title {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 36px;
+    font-family: Open Sans;
+    color: var(--primary-color);
+    font-weight: 600;
+}

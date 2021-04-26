@@ -1,0 +1,20 @@
+.container-geral {
+    height: calc(100vh - 70px);
+    background: url('../../../core/assets/home-background.svg') no-repeat bottom;
+    background-size: cover;
+    -webkit-background-size: cover;
+}
+
+.container-above {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    padding-top: 25px;
+}
+
+.container-below {
+    height: calc(100vh - 142px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

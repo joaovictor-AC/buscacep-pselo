@@ -1,0 +1,9 @@
+
+.content-home {
+    width: 500px;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 5px 30px 10px rgb(0 0 0 / 20%);
+}
+

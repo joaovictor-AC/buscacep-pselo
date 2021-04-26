@@ -55,10 +55,26 @@
     /* border: 1px solid var(--primary-color); */
     border-radius: 10px;
     gap: .5em;
+    position: relative;
+}
+
+.icon-div {
+    display: inline-block;
 }
 
 .icon-registrar-input {
     margin-left: 8px;
+}
+
+.icon-show-input {
+    margin-right: 8px;
+    cursor: pointer;
+    color: #696a6a;
+    transition: all .25s;
+}
+
+.icon-show-input:hover {
+    color: #272828;
 }
 
 .input-registrar {
@@ -78,7 +94,7 @@
     align-self: flex-start;
     font-weight: bold;
     color: black;
-    margin: 0 0 10px 0;
+    margin: 5px 0 10px 5px;
     text-decoration: underline;
     transition:  all .5s;
 }
@@ -112,6 +128,13 @@
     background-color: #fff;
     border: 1px solid var(--primary-color);
     color: var(--primary-hover-color);
+}
+
+.invalid{
+    color: #dc3545;
+    position: absolute;
+    left: 5px;
+    bottom: -20px;
 }
 
 @media (max-width: 508px) {
