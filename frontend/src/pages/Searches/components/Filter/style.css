@@ -1,0 +1,16 @@
+.filter-container {
+    background: white;
+    border-radius: 15px;
+    width: 70%;
+}
+
+.filter-form-content {
+    display: flex;
+
+}
+
+.filter-input {
+    border: none;
+    border-bottom: 1px solid red;
+    margin-right: 8px;
+}
